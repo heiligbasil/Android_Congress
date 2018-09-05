@@ -1,6 +1,6 @@
 # Android_Congress
 
-This project will let you practice creating a new project including creating a git repo for it, adding it to GitHub on your account, making changes, commiting them, and pushing them.
+
 
 ## Instructions
 
@@ -18,25 +18,32 @@ This project will let you practice creating a new project including creating a g
    a. With an open project, go to File->New->Import
    b. With all projects closed, click Import Project
 
-### Part 4 - Create the List Activity using the MVVM Model
+### Part 3 - Create the List Activity using the MVVM Model
 
-1. Create the layout for an activity that will list the display name for all returned congresspeople.
+1. Create the layout for an activity that will list the display name for all returned congresspeople.  
+> You can see the data provided for all congresspeople in this query in the API documentation (https://projects.propublica.org/api-docs/congress-api/members/#lists-of-members)
+2. Write a CongressPerson repository class that will wrap data from the provided library in a `MutableLiveData` object and return it.  
+> Use `ArrayList<CongresspersonOverview> rawData = CongressDao.getAllMembers();` to get overview details from the library.  
+3. Write a `ViewModel`class that returns a singleton `LiveData` object.
+> Remember, a singleton class doesn't have a public constructor. Intead, it has a getter that checks if the object has been instantiated, if it hasn't it builds the object and returns it. If it has, it returns the object.
+4. In your `Activity` class, attach your viewmodel to the view by using `viewModel = ViewModelProviders.of(this).get(MyViewModel.class)`  
+5. Call the `observe(Context, Oobserver)` method. In the observer, write what the app should do each time the data is updated (ie update the UI).
+> You'll want to build a display name for each congressperson combining things like First and Last Name, party and state.  
+> Add the congress person's ID to the `Tag` field of the `View` object so you can retreive it when the view is clicked.
+> If this takes more than a few lines of code, do it in a separate method.
+> You'll need to use `runOnUiThread` to perform the final process of attaching the new `View` to the UI.
+6. Be sure to thoroughly test this activity.
 
+### Part 4 - Create Details View Layout and Link the two together
 
+1. Create a layout for an Activity that will display details for a selected congress person.
+> You can see the data provided for each congressperson in this query in the API documentation (https://projects.propublica.org/api-docs/congress-api/members/#get-a-specific-member)
+2. In your list Activity, build an `onClickListener` that will retrieve the `Tag` from the view and attach it to an `Intent` which launches your new activity.
+3. Test your `Intent`.
 
+### Part 5 - Build a MVVM structure for your details activity
 
-### Part 4 - Commit Changes
-
-1. Modify your project by adding a list of animals you'd like to have as pets (be as fanciful as you want).
-2. Add the modified file(s) to the git staging area.
-3. Commit the modified files.
-4. Push your changes to GitHub.
-
-### Part 5 - Verify
-
-1. Clone the repo from GitHub to a new folder on your computer (e.g. your Desktop)
-2. Open the newly-cloned repository's Android Studio project.
-3. Build and run, making sure it works and shows _all_ the pets you added, including those you added in Part 4.
+1. Repeat steps 2 - 6 of part 4 for your new activity.
 
 ## Submit
 
