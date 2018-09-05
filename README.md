@@ -4,12 +4,14 @@
 
 ## Instructions
 
-### Part 1 - Clone Repo
+### Part 1 - Fork and Clone Repo
 
-1. Click the green clone or download button on the repo.
-2. Copy the provided URL
-3. Open a git bash console in the directory where you want your project to be.
-4. Clone the repo into your workspace
+1. Click the Fork symbol in the top right of the repo.
+2. Navigate to the newly forked repo in your account
+3. Click the green clone or download button on the repo.
+4. Copy the provided URL
+5. Open a git bash console in the directory where you want your project to be.
+6. Clone the repo into your workspace
 
 ### Part 2 - Import the Project into Android Studio
 
