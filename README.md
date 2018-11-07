@@ -16,9 +16,9 @@
 ### Part 2 - Import the Project into Android Studio
 
 1. Open Android Studio
-2. Import the cloned project
-   a. With an open project, go to File->New->Import
-   b. With all projects closed, click Import Project
+2. Import the cloned project  
+   a. With an open project, go to File->New->Import  
+   b. With all projects closed, click Import Project  
 
 ### Part 3 - Create the List Activity using the MVVM Model
 
@@ -43,10 +43,10 @@
 2. In your list Activity, build an `onClickListener` that will retrieve the `Tag` from the view and attach it to an `Intent` which launches your new activity.
 3. Test your `Intent`.
 
-### Part 5 - Build a MVVM structure for your details activity
-
-1. Repeat steps 2 - 6 of part 4 for your new activity.
-
 ## Submit
 
-Submit your project to your PM by sending them a link to your repository on GitHub via Slack DM (Direct Message).
+Submit your project by creating a pull request on this project, your PM will review it and respond to you.
+
+### Challenge - Build a MVVM structure for your details activity
+
+1. Repeat steps 2 - 6 of part 3 for your new activity.
