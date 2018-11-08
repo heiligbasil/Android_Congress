@@ -46,7 +46,7 @@
 ### Part 5 - Build a MVVM structure for your details activity
 
 1. Repeat steps 2 - 6 of part 3 for your new activity.
-> Use `CongresspersonDetails profile = new CongresspersonDetails(CongressDao.getMemberDetails(id));` to get the congressperson's details (step 2)
+> Use `CongresspersonDetails profile = CongressDao.getMemberDetails(id);` to get the congressperson's details (step 2)
 
 
 ## Submit
