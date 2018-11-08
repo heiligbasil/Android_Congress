@@ -24,12 +24,12 @@
 
 1. Create the layout for an activity that will list the display name for all returned congresspeople.  
 > You can see the data provided for all congresspeople in this query in the API documentation (https://projects.propublica.org/api-docs/congress-api/members/#lists-of-members)
-2. Write a CongressPerson repository class that will wrap data from the provided library in a `MutableLiveData` object and return it.  
+2. Write a CongressPersonOverview repository class that will wrap data from the provided library in a `MutableLiveData` object and return it.  
 > Use `ArrayList<CongresspersonOverview> rawData = CongressDao.getAllMembers();` to get overview details from the library.  
 3. Write a `ViewModel`class that returns a singleton `LiveData` object.
 > Remember, a singleton class doesn't have a public constructor. Intead, it has a getter that checks if the object has been instantiated, if it hasn't it builds the object and returns it. If it has, it returns the object.
 4. In your `Activity` class, attach your viewmodel to the view by using `viewModel = ViewModelProviders.of(this).get(MyViewModel.class)`  
-5. Call the `observe(Context, Oobserver)` method. In the observer, write what the app should do each time the data is updated (ie update the UI).
+5. Call the `observe(Context, Observer)` method. In the observer, write what the app should do each time the data is updated (ie update the UI).
 > You'll want to build a display name for each congressperson combining things like First and Last Name, party and state.  
 > Add the congress person's ID to the `Tag` field of the `View` object so you can retreive it when the view is clicked.
 > If this takes more than a few lines of code, do it in a separate method.
@@ -43,10 +43,13 @@
 2. In your list Activity, build an `onClickListener` that will retrieve the `Tag` from the view and attach it to an `Intent` which launches your new activity.
 3. Test your `Intent`.
 
+### Part 5 - Build a MVVM structure for your details activity
+
+1. Repeat steps 2 - 6 of part 3 for your new activity.
+> Use `CongresspersonDetails profile = new CongresspersonDetails(CongressDao.getMemberDetails(id));` to get the congressperson's details (step 2)
+
+
 ## Submit
 
 Submit your project by creating a pull request on this project, your PM will review it and respond to you.
 
-### Challenge - Build a MVVM structure for your details activity
-
-1. Repeat steps 2 - 6 of part 3 for your new activity.
