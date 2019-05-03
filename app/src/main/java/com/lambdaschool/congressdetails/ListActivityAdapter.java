@@ -1,5 +1,6 @@
 package com.lambdaschool.congressdetails;
 
+import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -8,6 +9,7 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.lambdaschool.congressdataapiaccess.CongressDao;
 import com.lambdaschool.congressdataapiaccess.CongresspersonOverview;
 
 import java.util.ArrayList;
@@ -29,12 +31,15 @@ public class ListActivityAdapter extends RecyclerView.Adapter<ListActivityAdapte
     public void onBindViewHolder(@NonNull ViewHolder viewHolder, int i) {
         CongresspersonOverview congresspersonOverview = congresspersonOverviewArrayList.get(i);
 
+        viewHolder.imageView.setImageBitmap(CongressDao.getImage(congresspersonOverview.getId()));
         viewHolder.textView.setText(String.format("%s: %s %s - %s", congresspersonOverview.getState(), congresspersonOverview.getFirstName(), congresspersonOverview.getLastName(), congresspersonOverview.getParty()));
+        viewHolder.viewParent.setTag(congresspersonOverview.getId());
         viewHolder.viewParent.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-//                Intent intent = new Intent (v.getContext(), ???.class);
-//                v.getContext().startActivity(intent);
+                Intent intent = new Intent (v.getContext(), DetailsActivity.class);
+                intent.putExtra("congress_person_id",v.getTag().toString());
+                v.getContext().startActivity(intent);
             }
         });
     }

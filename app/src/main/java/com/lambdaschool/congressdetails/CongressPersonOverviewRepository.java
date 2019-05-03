@@ -9,7 +9,7 @@ import java.util.ArrayList;
 
 public class CongressPersonOverviewRepository {
     public MutableLiveData<ArrayList<CongresspersonOverview>> getTheGoods() {
-        MutableLiveData<ArrayList<CongresspersonOverview>> mutableLiveDataList=new MutableLiveData<>();
+        MutableLiveData<ArrayList<CongresspersonOverview>> mutableLiveDataList = new MutableLiveData<>();
         mutableLiveDataList.setValue(CongressDao.getAllMembers());
         return mutableLiveDataList;
     }

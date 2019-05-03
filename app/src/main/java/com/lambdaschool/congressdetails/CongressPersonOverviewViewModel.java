@@ -13,14 +13,14 @@ public class CongressPersonOverviewViewModel extends ViewModel {
     private CongressPersonOverviewRepository congressPersonOverviewRepository;
 
     public LiveData<ArrayList<CongresspersonOverview>> getCongressPersonOverviewList() {
-        if (mutableLiveDataList==null) {
+        if (mutableLiveDataList == null) {
             stuffTheGoods();
         }
         return mutableLiveDataList;
     }
 
     private void stuffTheGoods() {
-        congressPersonOverviewRepository=new CongressPersonOverviewRepository();
+        congressPersonOverviewRepository = new CongressPersonOverviewRepository();
         mutableLiveDataList = congressPersonOverviewRepository.getTheGoods();
     }
 }
